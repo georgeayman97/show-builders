@@ -135,9 +135,13 @@
     </aside>
     <!-- end left-side -->
     <header class="video-hero">
-        <div class="video-bg">
-            <video autoplay loop muted playsinline>
-                <source src="videos/bg%20video.mp4" type="video/mp4">
+        <div class="video-bg" id="video-container">
+            <!-- Static background image placeholder -->
+            <div class="video-placeholder"></div>
+            
+            <!-- Video element with no src initially -->
+            <video autoplay loop muted playsinline class="hero-video" poster="images/IMG-20241128-WA0033.jpg">
+                <!-- src will be added via JavaScript -->
             </video>
         </div>
         <!-- end video-bg -->
@@ -272,27 +276,27 @@
         <ul>
             <li>
                 <figure class="reveal-effect masker wow"><a data-fancybox href="images/IMG-20241128-WA0020.jpg"><img
-                        alt="Image" src="images/IMG-20241128-WA0020.jpg"></a></figure>
+                        alt="Image" src="images/IMG-20241128-WA0020.jpg" loading="lazy"></a></figure>
             </li>
             <li>
                 <figure class="reveal-effect masker wow"><a data-fancybox href="images/IMG-20241128-WA0021.jpg"><img
-                        alt="Image" src="images/IMG-20241128-WA0021.jpg"></a></figure>
+                        alt="Image" src="images/IMG-20241128-WA0021.jpg" loading="lazy"></a></figure>
             </li>
             <li>
                 <figure class="reveal-effect masker wow"><a data-fancybox href="images/IMG-20241128-WA0022.jpg"><img
-                        alt="Image" src="images/IMG-20241128-WA0022.jpg"></a></figure>
+                        alt="Image" src="images/IMG-20241128-WA0022.jpg" loading="lazy"></a></figure>
             </li>
             <li>
                 <figure class="reveal-effect masker wow"><a data-fancybox href="images/IMG-20241128-WA0024.jpg"><img
-                        alt="Image" src="images/IMG-20241128-WA0024.jpg"></a></figure>
+                        alt="Image" src="images/IMG-20241128-WA0024.jpg" loading="lazy"></a></figure>
             </li>
             <li>
                 <figure class="reveal-effect masker wow"><a data-fancybox href="images/IMG-20241128-WA0029.jpg"><img
-                        alt="Image" src="images/IMG-20241128-WA0029.jpg"></a></figure>
+                        alt="Image" src="images/IMG-20241128-WA0029.jpg" loading="lazy"></a></figure>
             </li>
             <li>
                 <figure class="reveal-effect masker wow"><a data-fancybox href="images/IMG-20241128-WA0031.jpg"><img
-                        alt="Image" src="images/IMG-20241128-WA0031.jpg"></a></figure>
+                        alt="Image" src="images/IMG-20241128-WA0031.jpg" loading="lazy"></a></figure>
             </li>
         </ul>
     </section>
@@ -311,37 +315,37 @@
                         <!-- First Row -->
                         <li class="col-3 reveal-effect masker wow d-flex justify-content-center align-items-center">
                             <img alt="WWE" class="img-fluid" src="images/logos/WWE.png"
-                                 style="max-height: 80px; object-fit: contain;">
+                                 style="max-height: 80px; object-fit: contain;" loading="lazy">
                         </li>
                         <li class="col-3 reveal-effect masker wow d-flex justify-content-center align-items-center">
                             <img alt="HQWS" class="img-fluid" src="images/logos/hqws.webp"
-                                 style="max-height: 80px; object-fit: contain; filter: drop-shadow(0px 0px 1px #000) drop-shadow(0px 0px 1px #000);">
+                                 style="max-height: 80px; object-fit: contain; filter: drop-shadow(0px 0px 1px #000) drop-shadow(0px 0px 1px #000);" loading="lazy">
                         </li>
                         <li class="col-3 reveal-effect masker wow d-flex justify-content-center align-items-center">
                             <img alt="LiveNation" class="img-fluid" src="images/logos/LiveNation.png"
-                                 style="max-height: 80px; object-fit: contain;">
+                                 style="max-height: 80px; object-fit: contain;" loading="lazy">
                         </li>
                         <!-- Second Row -->
                         <li class="col-3 reveal-effect masker wow d-flex justify-content-center align-items-center">
                             <img alt="production" class="img-fluid" src="images/logos/production-glue-logo.png"
-                                 style="max-height: 80px; object-fit: contain;">
+                                 style="max-height: 80px; object-fit: contain;" loading="lazy">
                         </li>
                         <li class="col-3 reveal-effect masker wow d-flex justify-content-center align-items-center">
                             <img alt="Rotana" class="img-fluid" src="images/logos/rotana.png"
-                                 style="max-height: 80px; object-fit: contain;">
+                                 style="max-height: 80px; object-fit: contain;" loading="lazy">
                         </li>
                         <li class="col-3 reveal-effect masker wow d-flex justify-content-center align-items-center">
                             <img alt="sela" class="img-fluid" src="images/logos/sela.png"
-                                 style="max-height: 80px; object-fit: contain;">
+                                 style="max-height: 80px; object-fit: contain;" loading="lazy">
                         </li>
                         <li class="col-3 reveal-effect masker wow d-flex justify-content-center align-items-center">
                             <img alt="MDLbeast" class="img-fluid" src="images/logos/MDLbeast.png"
-                                 style="max-height: 80px; object-fit: contain;">
+                                 style="max-height: 80px; object-fit: contain;" loading="lazy">
                         </li>
 
                         <li class="col-3 reveal-effect masker wow d-flex justify-content-center align-items-center">
                             <img alt="RockIt" class="img-fluid" src="images/logos/Rockit.png"
-                                 style="max-height: 80px; object-fit: contain;">
+                                 style="max-height: 80px; object-fit: contain;" loading="lazy">
                         </li>
                     </ul>
                 </div>
@@ -383,6 +387,46 @@
         <!-- end row -->
     </div>
     <!-- end container -->
+    <style>
+        .video-bg {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .video-placeholder {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/IMG-20241128-WA0033.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            transition: opacity 1s ease;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            z-index: 0;
+        }
+        
+        .video-loaded .hero-video {
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .video-loaded .video-placeholder {
+            opacity: 0;
+        }
+        </style>
 </footer>
 <!-- end footer -->
 
@@ -395,5 +439,91 @@
 <script src='js/odometer.min.js'></script>
 <script src='js/fancybox.min.js'></script>
 <script src="js/scripts.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if Intersection Observer is supported
+        if ('IntersectionObserver' in window) {
+            const videoContainer = document.getElementById('video-container');
+            const video = document.querySelector('.hero-video');
+            
+            const options = {
+                root: null, // use viewport
+                rootMargin: '0px',
+                threshold: 0.1 // trigger when 10% of the element is visible
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Video container is visible, load the video
+                        loadVideo();
+                        // Unobserve after loading once
+                        observer.unobserve(videoContainer);
+                    }
+                });
+            }, options);
+            
+            // Start observing
+            observer.observe(videoContainer);
+            
+            function loadVideo() {
+                // Check for WebM support
+                const canPlayWebm = video.canPlayType('video/webm') !== '';
+                
+                // Create and add appropriate source elements
+                if (canPlayWebm) {
+                    const webmSource = document.createElement('source');
+                    webmSource.src = 'videos/bg%20video.webm';
+                    webmSource.type = 'video/webm';
+                    video.appendChild(webmSource);
+                }
+                
+                // Always add MP4 as fallback
+                const mp4Source = document.createElement('source');
+                mp4Source.src = 'videos/bg%20video.mp4';
+                mp4Source.type = 'video/mp4';
+                video.appendChild(mp4Source);
+                
+                // When video can play, show it
+                video.addEventListener('canplaythrough', function() {
+                    videoContainer.classList.add('video-loaded');
+                });
+                
+                // Error handling if video fails to load
+                video.addEventListener('error', function() {
+                    console.error('Video loading error');
+                    // Show placeholder permanently as fallback
+                    document.querySelector('.video-placeholder').style.opacity = 1;
+                    document.querySelector('.video-placeholder').style.zIndex = 2;
+                });
+                
+                // Fallback if video takes too long
+                setTimeout(function() {
+                    videoContainer.classList.add('video-loaded');
+                }, 3000);
+            }
+        } else {
+            // Fallback for browsers that don't support Intersection Observer
+            setTimeout(function() {
+                const video = document.querySelector('.hero-video');
+                
+                // Add both WebM and MP4 sources for older browsers
+                const webmSource = document.createElement('source');
+                webmSource.src = 'videos/bg%20video.webm';
+                webmSource.type = 'video/webm';
+                video.appendChild(webmSource);
+                
+                const mp4Source = document.createElement('source');
+                mp4Source.src = 'videos/bg%20video.mp4';
+                mp4Source.type = 'video/mp4';
+                video.appendChild(mp4Source);
+                
+                setTimeout(function() {
+                    video.parentElement.classList.add('video-loaded');
+                }, 1000);
+            }, 2000);
+        }
+    });
+</script>
 </body>
 </html>
